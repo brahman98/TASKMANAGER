@@ -14,10 +14,11 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  function addTask(title) {
+  function addTask(title, priority) {
     const newTask = {
       id: Date.now(),
       title: title,
+      priority: priority,
       completed: false
     };
     setTasks([...tasks, newTask]);
@@ -30,6 +31,11 @@ function App() {
       task.id === id
         ? { ...task, completed: !task.completed }
         : task
+    ));
+  }
+  function updateTask(id, newTitle) {
+    setTasks(tasks.map(task =>
+      task.id === id ? {...task, title: newTitle} : task
     ));
   }
 
@@ -45,6 +51,7 @@ function App() {
               addTask={addTask}
               deleteTask={deleteTask}
               toggleTask={toggleTask}
+              updateTask={updateTask}
             />
           } />
 

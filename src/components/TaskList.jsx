@@ -1,6 +1,6 @@
 import TaskItem from './TaskItem';
 
-function TaskList({ tasks, deleteTask, toggleTask }){
+function TaskList({ tasks, deleteTask, toggleTask, updateTask }){
     if (tasks.length === 0) {
         return <p>Задач пока нет</p>
     }
@@ -12,6 +12,7 @@ function TaskList({ tasks, deleteTask, toggleTask }){
                     task={task}
                     deleteTask={deleteTask}
                     toggleTask={toggleTask}
+                    updateTask={updateTask}
                 />
             ))}
         </div>

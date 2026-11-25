@@ -2,7 +2,7 @@ import { useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskList from '../components/TaskList';
 
-function Home({ tasks, addTask, deleteTask, toggleTask }) {
+function Home({ tasks, addTask, deleteTask, toggleTask, updateTask }) {
     const [filter, setFilter] = useState('all');
     const filteredTasks = tasks.filter(task => {
         if (filter === 'active') return !task.completed;
@@ -22,6 +22,7 @@ function Home({ tasks, addTask, deleteTask, toggleTask }) {
                 tasks={filteredTasks}
                 deleteTask={deleteTask}
                 toggleTask={toggleTask}
+                updateTask={updateTask}
             />
         </main>
     )
